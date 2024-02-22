@@ -1,0 +1,46 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    background-image: url('../images/image1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.vertical-horizontal-center {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes border-color-change {
+    0% {
+      border-color: #3498db; /* Blue */
+    }
+    25% {
+      border-color: #e74c3c; /* Red */
+    }
+    50% {
+      border-color: #f1c40f; /* Yellow */
+    }
+    75% {
+      border-color: #2ecc71; /* Green */
+    }
+    100% {
+      border-color: #3498db; /* Blue */
+    }
+  }
+  
+  .card {
+    border: 5px solid #3498db; /* Initial border color */
+    animation: border-color-change 4s linear infinite;
+  }
+  
+  
+  .colorschange {
+    animation: colorCycle 10s infinite;
+  }
+  
