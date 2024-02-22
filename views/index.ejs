@@ -20,13 +20,14 @@
             <div class="card-header">
                 Weather APP
             </div>
+            <form action="/getWeather" method="POST">
             <div class="card-body">
                 <!-- select form -->
-                <select class="form-select border-info mb-3" aria-label="Default select example">
+                <select class="form-select border-info mb-3" name="city">
                     <option selected>Select City</option>
-                    <option value="Moscow" name="city">Moscow</option>
-                    <option value="2">Paris</option>
-                    <option value="3">Houston</option>
+                    <option value="524901">Moscow</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Houston">Houston</option>
                 </select>
                 <!-- Top row full-width card -->
                 <div class="row mb-3"> <!-- margin-bottom for spacing -->
@@ -34,7 +35,8 @@
                         <div class="card border-info">
                             <div class="card-body">
                                 <!-- Content for the top full-width card -->
-                                Top Full-Width Card Content
+                                <!-- Top Full-Width Card Content -->
+                                <%= content %>
                             </div>
                         </div>
                     </div>
@@ -60,9 +62,10 @@
                         </div>
                     </div>
                     <!-- submit button -->
-                    <button type="button" class="btn btn-outline-info">Get Weather</button>
+                    <button type="submit" class="btn btn-outline-info">Get Weather</button>
                 </div>
             </div>
+        </form>
             <div class="card-footer text-body-secondary">
                 © 2024 D.Awah
             </div>
