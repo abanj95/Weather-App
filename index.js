@@ -20,20 +20,31 @@ app.get('/', (req, res)=>{
     res.render('index.ejs',{content: 'City will be shown here'});
 });
 
-app.post('/getWeather', async (req,res) => {
-    const cityId = req.body.city;
+// app.post('/getWeather', async (req,res) => {
+//     const cityId = req.body.city;
+//     try{
+//     const response = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${API_KEY}`);
+//     const content = JSON.stringify(response.data.city.name);
+//     console.log("log here: "+content);
+//     res.render('index.ejs',{content:content});
+//     }
+//     catch(error){
+
+//         res.render('index.ejs',{ content: JSON.stringify(error.response)});
+//     }
+// });
+app.post('/getWeather',async(req,res)=>{
+    const city = req.body.city;
     try{
-    const response = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${API_KEY}`);
-    const content = JSON.stringify(response.data.city.name);
-    console.log("log here: "+content);
-    res.render('index.ejs',{content:content});
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+    const content = response.data;
+    // console.log("log here: "+content.name+" visibility: "+content.visibility);
+    res.render('index.ejs',{content: content});
     }
     catch(error){
-
-        res.render('index.ejs',{ content: JSON.stringify(error.response)});
+        res.render('index.ejs',{content: JSON.stringify(error.response)});
     }
-});
-
+})
 
 
 
