@@ -31,7 +31,7 @@
                 </select> -->
                     <div class="mb-3">
                         <label for="search-city" class="form-label"></label>
-                        <input class="form-control border-info" name="city" placeholder="search city...">
+                        <input class="form-control border-info" name="city" placeholder="search a city..." aria-label="search">
                     </div>
                     <!-- Top row full-width card -->
                     <div class="row mb-3"> <!-- margin-bottom for spacing -->
@@ -40,7 +40,7 @@
                                 <div class="card-body">
                                     <!-- Content for the top full-width card -->
                                     <!-- Top Full-Width Card Content -->
-                                    <%= content.name %>
+                                    <%= content %><span>, </span> <%= country %>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="card border-info" style="height: 200px;">
                                 <div class="card-body">
                                     <!-- Content for the bottom left card -->
-                                    <% content %>
+                                    <%=description %>
                                 </div>
                             </div>
                         </div>
@@ -61,16 +61,23 @@
                             <div class="card border-info" style="height: 100px;">
                                 <div class="card-body">
                                     <!-- Content for the bottom right card -->
+                                    <img id="weatherImage" src="/images/weather/<%= weather %>" alt="Weather Image">
 
                                 </div>
                             </div>
                             <!-- small cards -->
                             <div class="col-md-4 mt-3">
                                 <div class="card border-info" style="height: 80px;">
+                                    
                                     <div class="card-body">
+                                       <!-- <div class="card-header">Feels like</div> -->
                                         <!-- 1st little card -->
-
+                                        <% if(feels){ %>
+                                            <div class="text-body-secondary">feels like</div>
+                                            <%= feels %>
+                                        <% } %>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

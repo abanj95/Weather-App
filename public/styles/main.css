@@ -15,6 +15,15 @@ body{
     justify-content: center;
     align-items: center;
 }
+#suggestions-container {
+  z-index: 1000; /* Ensure it's above other content */
+  width: 100%; /* Match the width to the input field */
+  top: 100%; /* Position it right below the input field */
+  left: 0; /* Align it with the left edge of the parent */
+  max-height: 300px; /* Limit the height of the suggestions box */
+  overflow-y: auto; /* Add scroll to the suggestions box if it's too long */
+}
+
 
 @keyframes border-color-change {
     0% {
