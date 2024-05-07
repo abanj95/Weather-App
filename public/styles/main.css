@@ -53,3 +53,9 @@ body{
     animation: colorCycle 10s infinite;
   }
   
+  .small-card{
+    display: flex;
+    gap: 10px;
+    height: 80px;
+    width: 400px;
+  }

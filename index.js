@@ -9,15 +9,15 @@ const port = 3000;
 
 // weather API key from my .env file. you can generate yours by reading openweathermap.org
 const API_KEY = process.env.API_KEY;
-// const API_URL = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=';
 
-//// for parsing application/x-www-form-urlencoded
+
+// for parsing application/x-www-form-urlencoded
 app.use(bodyparser.urlencoded({extended:true}));
 
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
-    res.render('index.ejs',{content: 'City will be shown here', country: null, weather: null, feels: null, description: null});
+    res.render('index.ejs',{content: null, country: null, weather: null, feels: null, description: null,humidity: null, temp: null});
 });
 
 app.post('/getWeather',async(req,res)=>{
@@ -25,17 +25,19 @@ app.post('/getWeather',async(req,res)=>{
     try{
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
     const content = response.data;
-    
+    console.log(content);
     const country = content.sys.country;
     const feels = content.main.feels_like;
+    const humidity = content.main.humidity;
+    const temp = content.main.temp;
     const description = content.weather[0].description;
     // console.log("log here: "+content.name+" | visibility: "+content.visibility+" | country:"+content.sys.country+" | description: "+description+" | feel like: "+feels);
     const weather = updateWeatherImage(description);
     
-    res.render('index.ejs',{content: content.name, country: country, weather:weather,feels: feels, description: description});
+    res.render('index.ejs',{content: content.name, country: country, weather:weather,feels: feels, description: description, humidity: humidity, temp: temp});
     }
     catch(error){
-        res.render('index.ejs',{content: JSON.stringify(error.response), country: null, weather: null, feels:null, description: null});
+        res.render('index.ejs',{content: JSON.stringify(error.response), country: null, weather: null, feels:null, description: null,humidity: null, temp: null});
     }
 })
 

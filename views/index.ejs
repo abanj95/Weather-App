@@ -37,10 +37,12 @@
                     <div class="row mb-3"> <!-- margin-bottom for spacing -->
                         <div class="col">
                             <div class="card border-info">
-                                <div class="card-body">
+                                <div class="card-body" aria-placeholder="city, country...">
                                     <!-- Content for the top full-width card -->
                                     <!-- Top Full-Width Card Content -->
+                                    <% if(content){ %>
                                     <%= content %><span>, </span> <%= country %>
+                                    <% } %>
                                 </div>
                             </div>
                         </div>
@@ -67,20 +69,40 @@
                                 </div>
                             </div>
                             <!-- small cards -->
-                            <div class="col-md-4 mt-3">
-                                <div class="card border-info" style="height: 80px;">
-                                    
-                                    <div class="card-body">
-                                       <!-- <div class="card-header">Feels like</div> -->
-                                        <!-- 1st little card -->
-                                        <% if(feels){ %>
-                                            <div class="text-body-secondary">feels like</div>
-                                            <%= feels %>
-                                        <% } %>
+                            <div class="mt-3">
+                                <div class="small-card">
+                                    <!-- small card 1 -->
+                                    <div class="card border-info">
+                                        <div class="card-body">
+                                            <div class="text-body-secondary">Humidity</div>
+                                            <% if(humidity){ %>
+                                                <%= humidity %>
+                                            <% } %>
+                                        </div>
                                     </div>
-                                    
+                                    <!-- small card 2 -->
+                                    <div class="card border-info">
+                                        <div class="card-body">
+                                            <div class="text-body-secondary">Temperature</div>
+                                            <% if(temp){ %>
+                                                <%= temp %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <!-- small card 3 -->
+                                    <div class="card border-info">
+                                        <div class="card-body">
+                                            <div class="text-body-secondary">feels like</div>
+                                            <% if(feels){ %>
+                                                <%= feels %>
+                                            <% } %>
+                                        </div>
+                                    </div>
                                 </div>
+                            
+                                
                             </div>
+                            
                         </div>
                         <!-- submit button -->
                         <button type="submit" class="btn btn-outline-info">Get Weather</button>
