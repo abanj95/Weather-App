@@ -5,7 +5,7 @@ import 'dotenv/config';
 
 //creating app
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // weather API key from my .env file. you can generate yours by reading openweathermap.org
 const API_KEY = process.env.API_KEY;
