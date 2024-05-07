@@ -7,6 +7,7 @@ body{
     background-image: url('../images/image1.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
+    background-attachment: fixed;
 }
 
 .vertical-horizontal-center {
@@ -16,12 +17,12 @@ body{
     align-items: center;
 }
 #suggestions-container {
-  z-index: 1000; /* Ensure it's above other content */
-  width: 100%; /* Match the width to the input field */
-  top: 100%; /* Position it right below the input field */
-  left: 0; /* Align it with the left edge of the parent */
-  max-height: 300px; /* Limit the height of the suggestions box */
-  overflow-y: auto; /* Add scroll to the suggestions box if it's too long */
+  z-index: 1000; 
+  width: 100%; 
+  top: 100%; 
+  left: 0; 
+  max-height: 300px; 
+  overflow-y: auto; 
 }
 
 
